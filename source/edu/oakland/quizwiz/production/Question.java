@@ -1,5 +1,7 @@
 package edu.oakland.quizwiz.production;
 
+import java.util.*;
+
 /**
 * This class defines objects for storing data pertaining to one question
 *@author
@@ -9,22 +11,24 @@ package edu.oakland.quizwiz.production;
 public class Question {
 	private String type;
 	private String text;
-	private String[] selections;
+	private ArrayList<String> selections;
 	private int answer_index;
 	private int user_input_index;
 	private String answer_str;
 	private String user_input_str;
+	private boolean answer_boolean;
+	private boolean user_input_boolean;
 	
 	/**
 	* Constructor for multiple choice question
 	*/
-	public Question(String _text, String[] _selections, int _answer_index) {
+	public Question(String _text, ArrayList<String> _selections, int _answer_index) {
 		type = "MC";
 		text = _text;
 		selections = _selections;
 		answer_index = _answer_index;
 		user_input_index = 0;
-		answer_str = selections[answer_index];
+		answer_str = (String)selections.get(answer_index);
 	}
 
 	/**
@@ -36,6 +40,16 @@ public class Question {
 		answer_str = _answer_str;
 		user_input_str = "";
 	}
+	
+	/**
+	* Constructor for true / false question
+	*/
+	public Question(String _text, boolean _answer) {
+		type = "TF";
+		text = _text;
+		answer_boolean = _answer;
+		user_input_boolean = false;
+	}	
 	
 	public void answer_question(String _user_input_str) {
 		user_input_str = _user_input_str;
@@ -53,13 +67,13 @@ public class Question {
 		return text;
 	}
 
-	public String[] get_selections() {
+	public ArrayList<String> get_selections() {
 		return selections;
 	}
 
 	public String get_answer_string() {
 		if (type == "MC") {
-			return selections[answer_index];
+			return (String)selections.get(answer_index);
 		}
 		return answer_str;
 	}
