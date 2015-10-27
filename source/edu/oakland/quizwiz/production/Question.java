@@ -48,6 +48,11 @@ public class Question {
 		type = "TF";
 		text = _text;
 		answer_boolean = _answer;
+		if (answer_boolean) {
+			answer_str = "T";
+		} else {
+			answer_str = "F";
+		}
 		user_input_boolean = false;
 	}	
 	
@@ -72,22 +77,32 @@ public class Question {
 	}
 
 	public String get_answer_string() {
-		if (type == "MC") {
+		if (type.equals("MC")) {
 			return (String)selections.get(answer_index);
 		}
 		return answer_str;
 	}
 
+	public int get_answer_index() {
+		return answer_index;
+	}
+
+	public boolean get_answer_boolean() {
+		return answer_boolean;
+	}
+
 	public boolean get_correctness() {
 		boolean correctness = false;
-		if (type == "MC") {
+		if (type.equals("MC")) {
 			if (answer_index == user_input_index) {
 				correctness = true;
 			}
-		} else if (type == "SA") {
+		} else if (type.equals("SA")) {
 			if (answer_str.equals(user_input_str)) {
 				correctness = true;
 			}
+		} else if (type.equals("TF")) {
+			correctness = (answer_boolean == user_input_boolean);
 		}
 		return correctness;
 	}

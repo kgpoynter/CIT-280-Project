@@ -15,6 +15,9 @@ public class Parser {
 		Database db = new Database();
 		Parser.load_files(db);
 		db.list_quizzes();
+		db.export_quiz(0);
+		db.export_quiz(1);
+		db.export_quiz(2);
 	}
 
 	public static void load_files(Database db) throws IOException {
@@ -41,13 +44,14 @@ public class Parser {
 			int count = 0;
 			int num_questions = Integer.parseInt(line);
 			while ((line = br.readLine()) != null) {
-				if (num_questions < count) {
-					if (line == "SA") {
+				if (count < num_questions) {
+					if (line.equals("SA")) {
 						String text = br.readLine();
 						String answer = br.readLine();
 						Question q = new Question(text, answer);
 						quiz.add_question(q);
-					} else if (line == "MC") {
+						count = count + 1;
+					} else if (line.equals("MC")) {
 						int sel_num = Integer.parseInt(br.readLine());
 						String text = br.readLine();
 						ArrayList<String> selections = new ArrayList<String>();
@@ -59,12 +63,14 @@ public class Parser {
 						line = br.readLine();
 						Question q = new Question(text, selections, Integer.parseInt(line));
 						quiz.add_question(q);
-					} else if (line == "TF") {
+						count = count + 1;
+					} else if (line.equals("TF")) {
 						String text = br.readLine();
 						line = br.readLine();
-						boolean answer = (line == "T");
+						boolean answer = (line.equals("T"));
 						Question q = new Question(text, answer);
 						quiz.add_question(q);
+						count = count + 1;
 					}
 				}
 			}
