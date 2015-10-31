@@ -64,6 +64,10 @@ public class Question {
 		user_input_index = _user_input_index;
 	}
 
+	public void answer_question(boolean _user_input_boolean) {
+		user_input_boolean = _user_input_boolean;
+	}
+
 	public String get_question_type() {
 		return type;
 	}

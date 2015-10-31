@@ -11,15 +11,6 @@ import java.io.*;
 *@since version 0.1 151020
 */
 public class Parser {
-	public static void main(String[] args) throws IOException {
-		Database db = new Database();
-		Parser.load_files(db);
-		db.list_quizzes();
-		db.export_quiz(0);
-		db.export_quiz(1);
-		db.export_quiz(2);
-	}
-
 	public static void load_files(Database db) throws IOException {
 		final File folder = new File("quiz");
 		listFilesForFolder(folder, db);
