@@ -1,3 +1,5 @@
+package edu.oakland.quizwiz.production;
+
 import javax.swing.*;
 import java.awt.FlowLayout;
 import java.awt.*;
@@ -9,7 +11,7 @@ import javax.swing.JTextArea;
 import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 import javax.swing.JFrame;
-
+import edu.oakland.quizwiz.production.*;
 
 public class Quiz_Type extends JFrame{
 
