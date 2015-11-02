@@ -36,33 +36,43 @@ public class Parser {
 			int num_questions = Integer.parseInt(line);
 			while ((line = br.readLine()) != null) {
 				if (count < num_questions) {
-					if (line.equals("SA")) {
-						String text = br.readLine();
-						String answer = br.readLine();
-						Question q = new Question(text, answer);
-						quiz.add_question(q);
-						count = count + 1;
-					} else if (line.equals("MC")) {
-						int sel_num = Integer.parseInt(br.readLine());
-						String text = br.readLine();
-						ArrayList<String> selections = new ArrayList<String>();
-						int i = 0;
-						while (i < sel_num) {
-							i = i + 1;
-							selections.add(br.readLine());
-						}
-						line = br.readLine();
-						Question q = new Question(text, selections, Integer.parseInt(line));
-						quiz.add_question(q);
-						count = count + 1;
-					} else if (line.equals("TF")) {
-						String text = br.readLine();
-						line = br.readLine();
-						boolean answer = (line.equals("T"));
-						Question q = new Question(text, answer);
-						quiz.add_question(q);
-						count = count + 1;
-					}
+                                    switch (line) {
+                                        case "SA":
+                                            {
+                                                String text = br.readLine();
+                                                String answer = br.readLine();
+                                                Question q = new Question(text, answer);
+                                                quiz.add_question(q);
+                                                count = count + 1;
+                                                break;
+                                            }
+                                        case "MC":
+                                            {
+                                                int sel_num = Integer.parseInt(br.readLine());
+                                                String text = br.readLine();
+                                                ArrayList<String> selections = new ArrayList<String>();
+                                                int i = 0;
+                                                while (i < sel_num) {
+                                                    i = i + 1;
+                                                    selections.add(br.readLine());
+                                                }
+                                                line = br.readLine();
+                                                Question q = new Question(text, selections, Integer.parseInt(line));
+                                                quiz.add_question(q);
+                                                count = count + 1;
+                                                break;
+                                            }
+                                        case "TF":
+                                        {
+                                            String text = br.readLine();
+                                            line = br.readLine();
+                                            boolean answer = (line.equals("T"));
+                                            Question q = new Question(text, answer);
+                                            quiz.add_question(q);
+                                                count = count + 1;
+                                                break;
+                                            }
+                                    }
 				}
 			}
 			db.add_quiz(quiz);

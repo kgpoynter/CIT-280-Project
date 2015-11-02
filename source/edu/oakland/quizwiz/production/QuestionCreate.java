@@ -77,7 +77,7 @@ public class QuestionCreate extends javax.swing.JPanel {
         jRadioButton6 = new javax.swing.JRadioButton();
         jRadioButton7 = new javax.swing.JRadioButton();
 
-        setBackground(new java.awt.Color(224, 224, 255));
+        setBackground(new java.awt.Color(30, 30, 30));
         setPreferredSize(new java.awt.Dimension(750, 565));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Short Answer", "Multiple Choice", "True / False" }));
@@ -87,8 +87,10 @@ public class QuestionCreate extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Question:");
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Answer:");
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -121,18 +123,22 @@ public class QuestionCreate extends javax.swing.JPanel {
             }
         });
 
-        jRadioButton1.setBackground(new java.awt.Color(224, 224, 255));
+        jRadioButton1.setBackground(new java.awt.Color(30, 30, 30));
 
-        jRadioButton2.setBackground(new java.awt.Color(224, 224, 255));
+        jRadioButton2.setBackground(new java.awt.Color(30, 30, 30));
 
-        jRadioButton3.setBackground(new java.awt.Color(224, 224, 255));
+        jRadioButton3.setBackground(new java.awt.Color(30, 30, 30));
 
-        jRadioButton4.setBackground(new java.awt.Color(224, 224, 255));
+        jRadioButton4.setBackground(new java.awt.Color(30, 30, 30));
 
-        jRadioButton5.setBackground(new java.awt.Color(224, 224, 255));
+        jRadioButton5.setBackground(new java.awt.Color(30, 30, 30));
 
+        jRadioButton6.setBackground(new java.awt.Color(30, 30, 30));
+        jRadioButton6.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton6.setText("True");
 
+        jRadioButton7.setBackground(new java.awt.Color(30, 30, 30));
+        jRadioButton7.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton7.setText("False");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

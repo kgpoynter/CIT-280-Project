@@ -51,10 +51,11 @@ public class QuizCreate extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(234, 234, 255));
+        setBackground(new java.awt.Color(30, 30, 30));
         setPreferredSize(new java.awt.Dimension(750, 600));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Quiz Create!");
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +64,10 @@ public class QuizCreate extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Quiz Title:");
+
+        questionCreate2.setBackground(new java.awt.Color(30, 30, 30));
 
         jButton1.setText("Finalize Quiz");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +76,11 @@ public class QuizCreate extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Save to file:");
+
+        jCheckBox1.setBackground(new java.awt.Color(30, 30, 30));
 
         jButton2.setText("Add Question");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -81,8 +89,10 @@ public class QuizCreate extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Question 1");
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Make sure to add your last question before finalizing!");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
