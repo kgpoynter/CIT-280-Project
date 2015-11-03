@@ -161,19 +161,19 @@ public class QuizCreate extends javax.swing.JPanel {
         } else if (questionCreate2.jComboBox1.getSelectedIndex() == 1) {
             ArrayList<String> selections = new ArrayList<String>();
             int answer_index = 0;
-            if (questionCreate2.jTextField2.getText() != null) {
+            if (!questionCreate2.jTextField2.getText().equals("")) {
                 selections.add(questionCreate2.jTextField2.getText());
             }
-            if (questionCreate2.jTextField3.getText() != null) {
+            if (!questionCreate2.jTextField3.getText().equals("")) {
                 selections.add(questionCreate2.jTextField3.getText());
             }
-            if (questionCreate2.jTextField4.getText() != null) {
+            if (!questionCreate2.jTextField4.getText().equals("")) {
                 selections.add(questionCreate2.jTextField4.getText());
             }
-            if (questionCreate2.jTextField5.getText() != null) {
+            if (!questionCreate2.jTextField5.getText().equals("")) {
                 selections.add(questionCreate2.jTextField5.getText());
             }
-            if (questionCreate2.jTextField6.getText() != null) {
+            if (!questionCreate2.jTextField6.getText().equals("")) {
                 selections.add(questionCreate2.jTextField6.getText());
             }
             if (questionCreate2.jRadioButton1.isSelected()) {
