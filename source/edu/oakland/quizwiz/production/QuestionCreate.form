@@ -116,7 +116,7 @@
                   <Component id="jRadioButton6" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jRadioButton7" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="62" max="32767" attributes="0"/>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

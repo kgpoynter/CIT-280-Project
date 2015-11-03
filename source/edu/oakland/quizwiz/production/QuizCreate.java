@@ -52,7 +52,7 @@ public class QuizCreate extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(30, 30, 30));
-        setPreferredSize(new java.awt.Dimension(750, 600));
+        setPreferredSize(new java.awt.Dimension(750, 500));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -66,8 +66,6 @@ public class QuizCreate extends javax.swing.JPanel {
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Quiz Title:");
-
-        questionCreate2.setBackground(new java.awt.Color(30, 30, 30));
 
         jButton1.setText("Finalize Quiz");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -136,8 +134,8 @@ public class QuizCreate extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(questionCreate2, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(questionCreate2, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton1)
@@ -146,7 +144,7 @@ public class QuizCreate extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                         .addComponent(jLabel3)
                         .addComponent(jCheckBox1)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
