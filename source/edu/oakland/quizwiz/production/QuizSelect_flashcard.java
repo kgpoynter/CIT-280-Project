@@ -105,11 +105,7 @@ public class QuizSelect extends javax.swing.JPanel {
     private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //reinitialize the flashcard
         reinitialize();
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jButton2ActionPerformed(evt);
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
