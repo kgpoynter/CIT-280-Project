@@ -104,32 +104,64 @@ public class QuizSelect extends javax.swing.JPanel {
     
     private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //reinitialize the flashcard
+        index++;
         reinitialize();
         jButton2ActionPerformed(evt);
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //reinitialize the flashcard
+        reinitialize();
+        jButton2ActionPerformed(evt);
+        num = 2;
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //Some sort of flashcard viewing
-        JPanel flashpan = new JPanel();
-        JButton next = new JButton("Next");
+        
+        
         jButton1.setVisible(false);
         jButton2.setVisible(false);
         jList1.setVisible(false);
         jLabel1.setVisible(false);
         jScrollPane1.setVisible(false);
 
-        int index_total = quiz.get_num_questions();
+        
+        if(num == 2){
+            num = 1;
+            flash_if_back();
+        }
+        else{
+            flash_if_front();
+        }
+        
+        
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+    
+    
+
+    public void reinitialize() {
+
+        textpane1.setText(null);
+        
+    }
+    
+    public void flash_if_front(){
+        quiz.get_question(index);
         
         if(index <= index_total){
-            quiz.get_question(index);
+            
             textpane1.setText(quiz.get_question(index).get_question_text());
             flashpan.add(textpane1);
                        
             flashpan.setVisible(true);
             
-            index++;
+            
 
         }
         else {
@@ -142,15 +174,55 @@ public class QuizSelect extends javax.swing.JPanel {
             }
         });
         
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
         
+        front.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }
     
     
+    public void flash_if_back(){
+        quiz.get_question(index);
+        
+        if(index <= index_total){
+            
+            textpane1.setText(quiz.get_question(index).get_answer_string());
+            flashpan.add(textpane1);
+                       
+            flashpan.setVisible(true);
+            
+            
 
-    public void reinitialize() {
-
-        textpane1.setText(null);
+        }
+        else {
+            
+        }
+        
+        next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextActionPerformed(evt);
+            }
+        });
+        
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
+        
+        front.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         
     }
     
@@ -159,12 +231,18 @@ public class QuizSelect extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private JButton next = new JButton("Next");
+    private JButton back = new JButton("Backside");
+    private JButton front = new JButton("Frontside");
+    JPanel flashpan = new JPanel();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
-    Quiz quiz = new Quiz("");
+    private Quiz quiz = new Quiz("");
     int index = 0;
-    private JTextPane textpane1 = new JTextPane();
+    int num = 0;
+    int index_total = quiz.get_num_questions();
+    private JLabel textpane1 = new JLabel();
     
     // End of variables declaration//GEN-END:variables
 }
