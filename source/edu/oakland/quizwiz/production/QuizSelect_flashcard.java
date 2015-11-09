@@ -113,9 +113,10 @@ public class QuizSelect extends javax.swing.JPanel {
     
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //reinitialize the flashcard
+        num = 2;
         reinitialize();
         jButton2ActionPerformed(evt);
-        num = 2;
+        
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
