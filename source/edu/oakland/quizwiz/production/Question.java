@@ -94,6 +94,18 @@ public class Question {
 	public boolean get_answer_boolean() {
 		return answer_boolean;
 	}
+        
+        public boolean get_user_input_boolean() {
+            return user_input_boolean;
+        }
+        
+        public int get_user_input_index() {
+            return user_input_index;
+        }
+
+        public String get_user_input_str() {
+            return user_input_str;
+        }
 
 	public boolean get_correctness() {
 		boolean correctness = false;

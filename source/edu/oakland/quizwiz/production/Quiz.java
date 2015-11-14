@@ -20,6 +20,30 @@ public class Quiz {
 		title = _title;
 		num_questions = 0;
 	}
+        
+        public Quiz copy() {
+            Quiz new_quiz = new Quiz(title);
+            Question q;
+            int count = 0;
+		while (count < get_num_questions()) {
+                    q = get_question(count);
+                    if (q.get_question_type().equals("MC")) {
+			ArrayList<String> selections = q.get_selections();
+                        ArrayList<String> new_selections = new ArrayList<String>();
+                        for(String item: selections) new_selections.add(item);
+                        Question new_q = new Question(q.get_question_text(), new_selections, q.get_answer_index());
+                        new_quiz.add_question(new_q);
+                    } else if (q.get_question_type().equals("SA")){
+                        Question new_q = new Question(q.get_question_text(), q.get_answer_string());
+                        new_quiz.add_question(new_q);
+                    } else {
+                        Question new_q = new Question(q.get_question_text(), q.get_answer_boolean());
+                        new_quiz.add_question(new_q);
+                    }
+                    count = count + 1;
+		}
+            return new_quiz;
+        }
 
 	public void add_question(Question _question) {
 		questions.add(_question);
@@ -41,6 +65,16 @@ public class Quiz {
 	public int get_num_questions() {
 		return num_questions;
 	}
+        
+        public int get_num_correct() {
+            int count = 0;
+            for(Question q: questions) {
+                if (q.get_correctness()) {
+                    count = count + 1;
+                }
+            }
+            return count;
+        }
         
         public void export_quiz() throws IOException {
 		Question q;
