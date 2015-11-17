@@ -371,6 +371,9 @@ public class QuizCreate extends javax.swing.JPanel {
         Display.db.add_quiz(quiz);
         QuizSelect.model.addElement(quiz_title);
         
+        Display.quizSelect2.setVisible(true);
+        Display.quizCreate1.setVisible(false);
+        Display.jLayeredPane1.moveToFront(Display.quizSelect2);
         
         
         
@@ -378,13 +381,18 @@ public class QuizCreate extends javax.swing.JPanel {
         }
         else{
             
+            
+            
+            questionCreate2.jTextField2.setBackground(Color.red);
+            questionCreate2.jTextField1.setBackground(Color.red);
+            
+            
             jTextField1.setBackground(Color.red);
             jButton1.setEnabled(true);
+            
         }
         //Move to quizSelect
-        Display.quizSelect2.setVisible(true);
-        Display.quizCreate1.setVisible(false);
-        Display.jLayeredPane1.moveToFront(Display.quizSelect2);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
     
     
