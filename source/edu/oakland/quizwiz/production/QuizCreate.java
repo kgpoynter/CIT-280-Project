@@ -354,11 +354,13 @@ public class QuizCreate extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String quiz_title = jTextField1.getText();
+        
         if(!jTextField1.getText().equals("") && !jLabel4.getText().equals("Question 1")){
+            
             jButton1.setEnabled(true);
         quiz.set_title(quiz_title);
-        
         jTextField1.setBackground(Color.white);
+        
         if (jCheckBox1.isSelected()) {
             try {
                 quiz.export_quiz();
@@ -388,6 +390,9 @@ public class QuizCreate extends javax.swing.JPanel {
             
             
             jTextField1.setBackground(Color.red);
+            if(!jTextField1.getText().equals("")){
+                jTextField1.setBackground(Color.white);
+            }
             jButton1.setEnabled(true);
             
         }
