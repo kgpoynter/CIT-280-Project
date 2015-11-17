@@ -27,6 +27,7 @@ public class Display extends javax.swing.JFrame {
         flashcard1.setVisible(false);
         quizView1.setVisible(false);
         resultsView1.setVisible(false);
+	this.setResizable(false);
     }
 
     /**
