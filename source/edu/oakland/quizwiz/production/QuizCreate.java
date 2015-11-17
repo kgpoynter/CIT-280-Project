@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.oakland.quizwiz.production;
 
 import java.io.IOException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTextPane;
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.Color;
 /**
  *
  * @author Ikkitrix
@@ -38,7 +37,7 @@ public class QuizCreate extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    public void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -50,6 +49,8 @@ public class QuizCreate extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        
+        
 
         setBackground(new java.awt.Color(30, 30, 30));
         setPreferredSize(new java.awt.Dimension(750, 500));
@@ -92,6 +93,8 @@ public class QuizCreate extends javax.swing.JPanel {
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Make sure to add your last question before finalizing!");
+        
+        
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -133,6 +136,7 @@ public class QuizCreate extends javax.swing.JPanel {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel4))
+                    
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(questionCreate2, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
@@ -141,11 +145,13 @@ public class QuizCreate extends javax.swing.JPanel {
                         .addComponent(jButton1)
                         .addComponent(jButton2)
                         .addComponent(jLabel5))
+                        
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                         .addComponent(jLabel3)
                         .addComponent(jCheckBox1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -154,13 +160,33 @@ public class QuizCreate extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String q_text = questionCreate2.jTextField1.getText();
+        
+            jButton2.setEnabled(true);
+            
+        
         if (questionCreate2.jComboBox1.getSelectedIndex() == 0) {
-            String answer = questionCreate2.jTextField2.getText();
-            Question q = new Question(q_text, answer);
-            quiz.add_question(q);
+            
+            if(!questionCreate2.jTextField2.getText().equals("") && !questionCreate2.jTextField1.getText().equals("")){
+                String answer = questionCreate2.jTextField2.getText();
+                jButton2.setEnabled(true);
+
+                Question q = new Question(q_text, answer);
+                quiz.add_question(q);
+
+                questionCreate2.reinitialize();
+            
+            
+            }
+            else{
+                
+                jButton2.setEnabled(true);
+                
+                
+            }
         } else if (questionCreate2.jComboBox1.getSelectedIndex() == 1) {
             ArrayList<String> selections = new ArrayList<String>();
             int answer_index = 0;
+            
             if (!questionCreate2.jTextField2.getText().equals("")) {
                 selections.add(questionCreate2.jTextField2.getText());
             }
@@ -191,36 +217,104 @@ public class QuizCreate extends javax.swing.JPanel {
             if (questionCreate2.jRadioButton5.isSelected()) {
                 answer_index = 4;
             }
-            Question q = new Question(q_text, selections, answer_index);
-            quiz.add_question(q);
+            if(!questionCreate2.jTextField2.getText().equals("") && !questionCreate2.jTextField3.getText().equals("") && !questionCreate2.jTextField4.getText().equals("") 
+                    && !questionCreate2.jTextField5.getText().equals("") && !questionCreate2.jTextField6.getText().equals("") 
+                    && !questionCreate2.jTextField1.getText().equals("")){
+                if(questionCreate2.jRadioButton1.isSelected() || questionCreate2.jRadioButton2.isSelected() || questionCreate2.jRadioButton3.isSelected() || 
+                        questionCreate2.jRadioButton4.isSelected() || questionCreate2.jRadioButton5.isSelected()){
+                    Question q = new Question(q_text, selections, answer_index);
+                    quiz.add_question(q);
+                    questionCreate2.reinitialize();
+                }
+                else{
+                    jButton2.setEnabled(true);
+                }
+            }
+            
+            else{
+                
+                jButton2.setEnabled(true);
+            }
+            
+            
         } else if (questionCreate2.jComboBox1.getSelectedIndex() == 2) {
             boolean answer_boolean = false;
+            
             if (questionCreate2.jRadioButton6.isSelected()) {
                 answer_boolean = true;
+            
+                if(answer_boolean == true  && answer_boolean != false && !questionCreate2.jTextField1.getText().equals("")){
+                    Question q = new Question(q_text, answer_boolean);
+                    quiz.add_question(q);
+                    questionCreate2.reinitialize();
+                }
+                
+                
+                
+                else{
+                    jButton2.setEnabled(true);
+                }
+            
+            
+            
             }
-            Question q = new Question(q_text, answer_boolean);
-            quiz.add_question(q);
+            
+            
+            else if(questionCreate2.jRadioButton6.isSelected() || questionCreate2.jRadioButton7.isSelected() && 
+                    !questionCreate2.jTextField1.getText().equals("")){
+                    Question q = new Question(q_text, answer_boolean);
+                    quiz.add_question(q);
+                    questionCreate2.reinitialize();
+                
+            }
+            
+
+            else{
+                jButton2.setEnabled(true);
+            }
+            
+            
         }
         String q_counter = "Question ";
         q_counter += Integer.toString(quiz.get_num_questions() + 1);
         jLabel4.setText(q_counter);
-        questionCreate2.reinitialize();
+        
+        
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String quiz_title = jTextField1.getText();
+        if(!jTextField1.getText().equals("") && !jLabel4.getText().equals("Question 1")){
+            jButton1.setEnabled(true);
         quiz.set_title(quiz_title);
+        
         if (jCheckBox1.isSelected()) {
             try {
                 quiz.export_quiz();
             } catch (IOException ex) {
                 Logger.getLogger(QuizCreate.class.getName()).log(Level.SEVERE, null, ex);
+                
             }
+            
         }
         Display.db.add_quiz(quiz);
         QuizSelect.model.addElement(quiz_title);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        
 
+        }
+        else{
+            
+            jButton1.setEnabled(true);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    
+    
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -231,7 +325,8 @@ public class QuizCreate extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField1;
     private edu.oakland.quizwiz.production.QuestionCreate questionCreate2;
+    QuizSelect qs = new QuizSelect();
     // End of variables declaration//GEN-END:variables
 }
