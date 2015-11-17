@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.oakland.quizwiz.production;
 
 import java.io.*;
@@ -27,7 +22,7 @@ public class Display extends javax.swing.JFrame {
         flashcard1.setVisible(false);
         quizView1.setVisible(false);
         resultsView1.setVisible(false);
-	this.setResizable(false);
+        this.setResizable(false);
     }
 
     /**
@@ -37,7 +32,7 @@ public class Display extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    public void initComponents() {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jPanel1 = new javax.swing.JPanel();
@@ -207,13 +202,15 @@ public class Display extends javax.swing.JFrame {
         resultsView1.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    public void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         quizSelect2.setVisible(true);
         jLayeredPane1.moveToFront(quizSelect2);
         jLayeredPane1.moveToBack(jPanel1);
         jButton1.setVisible(false);
         jButton2.setVisible(false);
         jButton4.setVisible(true);
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
