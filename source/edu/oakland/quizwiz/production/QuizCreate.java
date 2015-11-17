@@ -309,6 +309,10 @@ public class QuizCreate extends javax.swing.JPanel {
             
             jButton1.setEnabled(true);
         }
+	//Move to quizSelect
+	Display.quizSelect2.setVisible(true);
+	Display.quizCreate1.setVisible(false);
+	Display.jLayeredPane1.moveToFront(Display.quizSelect2);
     }//GEN-LAST:event_jButton1ActionPerformed
     
     
