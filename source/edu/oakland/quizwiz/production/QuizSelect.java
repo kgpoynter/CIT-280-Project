@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.oakland.quizwiz.production;
 
 import javax.swing.DefaultListModel;
@@ -17,6 +12,7 @@ public class QuizSelect extends javax.swing.JPanel {
     /**
      * Creates new form QuizSelect
      */
+   
     public QuizSelect() {
         initComponents();
     }
@@ -28,7 +24,7 @@ public class QuizSelect extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    public void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
@@ -49,6 +45,9 @@ public class QuizSelect extends javax.swing.JPanel {
         jList1.setFixedCellWidth(200);
         jList1.setVisibleRowCount(10);
         jScrollPane1.setViewportView(jList1);
+        
+        
+        
 
         jButton1.setText("Start Quiz");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -60,7 +59,10 @@ public class QuizSelect extends javax.swing.JPanel {
         jButton2.setText("View Flashcards");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                
+                    jButton2ActionPerformed(evt);
+                
+                
             }
         });
 
@@ -97,24 +99,48 @@ public class QuizSelect extends javax.swing.JPanel {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
+        jScrollPane1.setVisible(true);
+        jList1.setVisible(true);
+        jButton1.setVisible(true);
+        jButton2.setVisible(true);
+        jLabel1.setVisible(true);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Some sort of quiz taking display
-        Display.quizView1.startQuiz(Display.db.get_quiz(jList1.getSelectedIndex()));
-        Display.quizSelect2.setVisible(false);
-        Display.quizView1.setVisible(true);
-        Display.jLayeredPane1.moveToBack(Display.quizSelect2);
-        Display.jLayeredPane1.moveToFront(Display.quizView1);
         
+        if(jList1.getModel().getSize() != 0){
+            Display.quizView1.startQuiz(Display.db.get_quiz(jList1.getSelectedIndex()));       
+            Display.quizSelect2.setVisible(false);
+            Display.quizView1.setVisible(true);
+            Display.jLayeredPane1.moveToBack(Display.quizSelect2);
+            Display.jLayeredPane1.moveToFront(Display.quizView1);
+        }
+        else{
+            Display.quizSelect2.setVisible(true);
+            Display.quizView1.setVisible(false);
+        }
+        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Display.flashcard1.setQuiz(Display.db.get_quiz(jList1.getSelectedIndex()));
-        Display.quizSelect2.setVisible(false);
-        Display.flashcard1.setVisible(true);
-        Display.jLayeredPane1.moveToBack(Display.quizSelect2);
-        Display.jLayeredPane1.moveToFront(Display.flashcard1);
+        
+        
+        if(jList1.getModel().getSize() != 0){
+            Display.flashcard1.setQuiz(Display.db.get_quiz(jList1.getSelectedIndex()));
+            Display.quizSelect2.setVisible(false);
+            Display.flashcard1.setVisible(true);
+            Display.jLayeredPane1.moveToBack(Display.quizSelect2);
+            Display.jLayeredPane1.moveToFront(Display.flashcard1);
+        }
+        else {
+            Display.quizSelect2.setVisible(true);
+            Display.flashcard1.setVisible(false);
+        }
+        
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
