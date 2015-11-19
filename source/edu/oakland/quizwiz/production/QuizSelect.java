@@ -110,11 +110,20 @@ public class QuizSelect extends javax.swing.JPanel {
         //Some sort of quiz taking display
         
         if(jList1.getModel().getSize() != 0){
-            Display.quizView1.startQuiz(Display.db.get_quiz(jList1.getSelectedIndex()));       
-            Display.quizSelect2.setVisible(false);
-            Display.quizView1.setVisible(true);
-            Display.jLayeredPane1.moveToBack(Display.quizSelect2);
-            Display.jLayeredPane1.moveToFront(Display.quizView1);
+            
+            int index = jList1.getSelectedIndex();
+            
+            if(index >= 0){
+                Display.quizView1.startQuiz(Display.db.get_quiz(jList1.getSelectedIndex())); 
+                Display.flashcard1.setQuiz(Display.db.get_quiz(jList1.getSelectedIndex()));
+                Display.quizSelect2.setVisible(false);
+                Display.quizView1.setVisible(true);
+                Display.jLayeredPane1.moveToBack(Display.quizSelect2);
+                Display.jLayeredPane1.moveToFront(Display.quizView1);
+            }
+            else{
+                
+            }
         }
         else{
             Display.quizSelect2.setVisible(true);
@@ -128,11 +137,19 @@ public class QuizSelect extends javax.swing.JPanel {
         
         
         if(jList1.getModel().getSize() != 0){
-            Display.flashcard1.setQuiz(Display.db.get_quiz(jList1.getSelectedIndex()));
-            Display.quizSelect2.setVisible(false);
-            Display.flashcard1.setVisible(true);
-            Display.jLayeredPane1.moveToBack(Display.quizSelect2);
-            Display.jLayeredPane1.moveToFront(Display.flashcard1);
+            
+            int index = jList1.getSelectedIndex();
+            
+            if(index >= 0){
+                Display.flashcard1.setQuiz(Display.db.get_quiz(jList1.getSelectedIndex()));
+                Display.quizSelect2.setVisible(false);
+                Display.flashcard1.setVisible(true);
+                Display.jLayeredPane1.moveToBack(Display.quizSelect2);
+                Display.jLayeredPane1.moveToFront(Display.flashcard1);
+            }
+            else{
+                
+            }
         }
         else {
             Display.quizSelect2.setVisible(true);
