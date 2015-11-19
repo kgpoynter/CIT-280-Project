@@ -37,6 +37,8 @@ public class QuizCreate extends javax.swing.JPanel {
         questionCreate2.jTextField6.setBackground(Color.white);
         questionCreate2.jRadioButton6.setForeground(Color.white);
         questionCreate2.jRadioButton7.setForeground(Color.white);
+        boolean state = false;
+        jCheckBox1.setSelected(state);
         questionCreate2.reinitialize();
         
     }
@@ -278,11 +280,11 @@ public class QuizCreate extends javax.swing.JPanel {
             
             else{
                 questionCreate2.jTextField2.setBackground(Color.red);
-                    questionCreate2.jTextField1.setBackground(Color.red);
-                    questionCreate2.jTextField3.setBackground(Color.red);
-                    questionCreate2.jTextField4.setBackground(Color.red);
-                    questionCreate2.jTextField5.setBackground(Color.red);
-                    questionCreate2.jTextField6.setBackground(Color.red);
+                questionCreate2.jTextField1.setBackground(Color.red);
+                questionCreate2.jTextField3.setBackground(Color.red);
+                questionCreate2.jTextField4.setBackground(Color.red);
+                questionCreate2.jTextField5.setBackground(Color.red);
+                questionCreate2.jTextField6.setBackground(Color.red);
                 jButton2.setEnabled(true);
             }
             
@@ -322,6 +324,7 @@ public class QuizCreate extends javax.swing.JPanel {
             
             else if(questionCreate2.jRadioButton6.isSelected() || questionCreate2.jRadioButton7.isSelected() && 
                     !questionCreate2.jTextField1.getText().equals("")){
+                
                     Question q = new Question(q_text, answer_boolean);
                     questionCreate2.jTextField2.setBackground(Color.white);
                     questionCreate2.jTextField1.setBackground(Color.white);
@@ -334,11 +337,13 @@ public class QuizCreate extends javax.swing.JPanel {
             
 
             else{
+                
                 questionCreate2.jTextField2.setBackground(Color.red);
                 questionCreate2.jTextField1.setBackground(Color.red);
                 questionCreate2.jRadioButton6.setForeground(Color.red);
                 questionCreate2.jRadioButton7.setForeground(Color.red);
                 jButton2.setEnabled(true);
+                
             }
             
             
@@ -353,13 +358,14 @@ public class QuizCreate extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         String quiz_title = jTextField1.getText();
         
         if(!jTextField1.getText().equals("") && !jLabel4.getText().equals("Question 1")){
             
             jButton1.setEnabled(true);
-        quiz.set_title(quiz_title);
-        jTextField1.setBackground(Color.white);
+            quiz.set_title(quiz_title);
+            jTextField1.setBackground(Color.white);
         
         if (jCheckBox1.isSelected()) {
             try {
@@ -372,26 +378,31 @@ public class QuizCreate extends javax.swing.JPanel {
         }
         Display.db.add_quiz(quiz);
         QuizSelect.model.addElement(quiz_title);
-        
         Display.quizSelect2.setVisible(true);
         Display.quizCreate1.setVisible(false);
         Display.jLayeredPane1.moveToFront(Display.quizSelect2);
         
-        
-        
 
         }
         else{
-            
-            
+ 
             
             questionCreate2.jTextField2.setBackground(Color.red);
-            questionCreate2.jTextField1.setBackground(Color.red);
-            
+            questionCreate2.jTextField1.setBackground(Color.red); 
+            questionCreate2.jTextField3.setBackground(Color.red);
+            questionCreate2.jTextField4.setBackground(Color.red);
+            questionCreate2.jTextField5.setBackground(Color.red);
+            questionCreate2.jTextField6.setBackground(Color.red);
+            questionCreate2.jRadioButton6.setForeground(Color.red);
+            questionCreate2.jRadioButton7.setForeground(Color.red);
             
             jTextField1.setBackground(Color.red);
+            
+            
             if(!jTextField1.getText().equals("")){
+                
                 jTextField1.setBackground(Color.white);
+                
             }
             jButton1.setEnabled(true);
             
@@ -416,6 +427,9 @@ public class QuizCreate extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     public javax.swing.JTextField jTextField1;
     private edu.oakland.quizwiz.production.QuestionCreate questionCreate2;
+    public static edu.oakland.quizwiz.production.QuizCreate quizCreate1;
+    public static edu.oakland.quizwiz.production.QuizSelect quizSelect2;
+    public static javax.swing.JLayeredPane jLayeredPane1;
     QuizSelect qs = new QuizSelect();
     
     
